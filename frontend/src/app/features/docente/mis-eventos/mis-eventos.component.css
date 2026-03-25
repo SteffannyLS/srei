@@ -1,0 +1,151 @@
+/* ===== GRID ===== */
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 10px;
+}
+
+/* ===== CARD ===== */
+
+.card-evento {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-evento:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== IMAGEN ===== */
+
+.card-evento .imagen {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f3f4f6;
+  position: relative;
+}
+
+.card-evento .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-evento:hover .imagen img {
+  transform: scale(1.05);
+}
+
+/* ===== CONTENIDO ===== */
+
+.card-evento .contenido {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-evento h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Texto */
+.card-evento p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* ===== ESTADO ===== */
+
+.card-evento .estado {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+/* Colores por estado */
+.estado.pendiente {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.estado.aprobado {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.estado.rechazado {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ===== ACCIONES ===== */
+
+.acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Botón principal */
+.btn-detalle {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #0b7a3b;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-detalle:hover {
+  background: #095c2d;
+}
+
+/* Botón PDF */
+.btn-pdf {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #c59b2b;
+  background: #fff;
+  color: #c59b2b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-pdf:hover {
+  background: #c59b2b;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+  .card-evento .imagen {
+    height: 160px;
+  }
+}

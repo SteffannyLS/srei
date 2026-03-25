@@ -1,0 +1,288 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.form-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== TÍTULO ===== */
+.titulo {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0b7a3b;
+  font-weight: 700;
+}
+
+/* ===== FORM GRID ===== */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ===== FORM GROUP ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FULL WIDTH ELEMENTS */
+textarea,
+.preview-grande,
+.botones,
+.mensaje {
+  grid-column: span 2;
+}
+
+/* ===== LABEL ===== */
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* ===== INPUTS ===== */
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #0b7a3b;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(11,122,59,0.1);
+}
+
+/* ===== INVALID ===== */
+.invalido {
+  border-color: #d9534f !important;
+}
+
+small {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #d9534f;
+}
+
+/* ===== RADIO ===== */
+.form-group div label {
+  font-weight: normal;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+/* ===== BOTÓN IA ===== */
+.btn-ia {
+  background: linear-gradient(135deg, #0b7a3b, #0f9d58);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.btn-ia:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #0f9d58, #0b7a3b);
+}
+
+/* ===== FILE INPUT BASE ===== */
+.file-upload {
+  border: 2px dashed #ccc;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+/* 🔥 IMAGEN (VERDE) */
+.imagen-btn {
+  border-color: #0b7a3b;
+  background: #f4fbf7;
+}
+
+.imagen-btn:hover {
+  background: #e8f5ec;
+  border-color: #095c2d;
+}
+
+/* 🔥 PDF (AZUL) */
+.pdf-btn {
+  border-color: #007bff;
+  background: #f4f8ff;
+}
+
+.pdf-btn:hover {
+  background: #e6f0ff;
+  border-color: #0056b3;
+}
+
+.file-upload input {
+  display: none;
+}
+
+/* ===== PREVIEW GRANDE ===== */
+.preview-grande {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.preview-grande h4 {
+  margin-bottom: 10px;
+  color: #0b7a3b;
+}
+
+.preview-grande img {
+  max-width: 100%;
+  max-height: 350px;
+  border-radius: 12px;
+  border: 3px solid #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.preview-grande img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== BOTÓN CREAR ===== */
+.botones {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-guardar {
+  background: #0b7a3b;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-guardar:hover {
+  background: #095c2d;
+}
+
+.btn-guardar:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ===== MENSAJE ===== */
+.mensaje {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #0b7a3b;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: aparecerModal 0.25s ease;
+}
+
+@keyframes aparecerModal {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+  color: #0b7a3b;
+}
+
+.modal p {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-confirmar {
+  background: #0b7a3b;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-confirmar:hover {
+  background: #095c2d;
+}
+
+.btn-cancelar {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-cancelar:hover {
+  background: #b5b5b5;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+<app-navbar *ngIf="mostrarNavbar"></app-navbar>
+
+<div class="layout">
+
+  <app-sidebar *ngIf="mostrarSidebar"></app-sidebar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<div *ngIf="sesionExpulsada" class="session-modal">
+
+  <div class="session-modal-content">
+
+    <h2>Sesión cerrada</h2>
+
+    <p>Un administrador expulsó tu sesión.</p>
+
+    <button (click)="irLogin()">Ir al login</button>
+
+  </div>
+
+</div>

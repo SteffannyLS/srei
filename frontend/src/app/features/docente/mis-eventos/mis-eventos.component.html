@@ -1,0 +1,71 @@
+<div class="contenedor">
+
+  <h2 class="titulo">Mis Eventos</h2>
+
+  <!-- CARGANDO -->
+  <div *ngIf="cargando" class="cargando">
+    Cargando eventos...
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards-container" *ngIf="!cargando && eventos.length > 0">
+
+    <div class="card-evento" *ngFor="let evento of eventos">
+
+      <!-- IMAGEN -->
+      <div class="imagen">
+        <img [src]="getImagen(evento.url_imagen)" alt="evento">
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="contenido">
+
+        <h3 class="nombre">{{ evento.nombreevento }}</h3>
+
+        <p><strong>Lugar:</strong> {{ evento.lugar }}</p>
+
+        <p>
+          <strong>Inicio:</strong>
+          {{ evento.fechainicio | date:'dd MMM yyyy, hh:mm a' }}
+        </p>
+
+        <p>
+          <strong>Fin:</strong>
+          {{ evento.fechafin | date:'dd MMM yyyy, hh:mm a' }}
+        </p>
+
+        <p><strong>Aforo:</strong> {{ evento.aforo }}</p>
+
+        <!-- ESTADO -->
+        <span class="estado" [ngClass]="evento.estado?.toLowerCase()">
+          {{ evento.estado }}
+        </span>
+
+        <!-- ACCIONES -->
+        <div class="acciones">
+
+          <button 
+            class="btn-pdf" 
+            *ngIf="evento.url_pdf"
+            (click)="abrirPdf(evento.url_pdf)">
+            Ver PDF
+          </button>
+
+          <button class="btn-detalle" (click)="verDetalle(evento)">
+            Ver detalles
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SIN DATOS -->
+  <div *ngIf="!cargando && eventos.length === 0" class="no-data">
+    No tienes eventos registrados
+  </div>
+
+</div>
