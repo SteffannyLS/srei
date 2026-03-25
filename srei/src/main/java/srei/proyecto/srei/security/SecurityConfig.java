@@ -58,8 +58,8 @@ public class SecurityConfig {
 
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                //IA/ GENERACIÓN
-                .requestMatchers("/api/ia/**").anonymous() 
+                // IA / GENERACIÓN
+                .requestMatchers("/api/ia/**").anonymous()
 
                 // 📂 archivos
                 .requestMatchers("/uploads/**").permitAll()
@@ -72,24 +72,14 @@ public class SecurityConfig {
                 .requestMatchers("/api/juegos/**").permitAll()
                 .requestMatchers("/juegos/**").permitAll()
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                 .requestMatchers("/api/asistente/**").permitAll()
 
-                .requestMatchers("/api/decano/**").authenticated()      
+                .requestMatchers("/api/decano/**").authenticated()
                 .requestMatchers("/api/estudiante/**").authenticated()
 
                 // Estudiante
                 //.requestMatchers("/api/admin/**").hasRole("ESTUDIANTE")
-<<<<<<< HEAD
-=======
-=======
-                
 
->>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                 // 🔐 ADMIN
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
@@ -100,15 +90,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/coordinador/**").hasRole("COORDINADOR")
 
                 // 🎓 DECANO
-<<<<<<< HEAD
                 //.requestMatchers("/api/decano/**").hasRole("DECANO")
-=======
-<<<<<<< HEAD
-                //.requestMatchers("/api/decano/**").hasRole("DECANO")
-=======
-                .requestMatchers("/api/decano/**").hasRole("DECANO")
->>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
                 .anyRequest().authenticated()
             )
@@ -129,10 +111,10 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-configuration.setAllowedOrigins(List.of("http://localhost:4200")); // 🔥 ESTA ES LA MEJOR
-configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-configuration.setAllowedHeaders(List.of("*"));
-configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source =
@@ -177,31 +159,15 @@ configuration.setAllowCredentials(true);
                                 ((String) row.get("nombrerol")).toLowerCase();
 
                         String rolApp = switch (rolBd) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
-                          case "admin" -> "ADMIN";
-                            case "coordinador" -> "COORDINADOR";
-                         case "decano" -> "DECANO";
-                          case "docente" -> "DOCENTE";
-                            case "usuarioexterno" -> "USUARIOEXTERNO";
-                            case "estudiante" -> "ESTUDIANTE"; 
-                            default -> "USER";
-                            };
-<<<<<<< HEAD
-=======
-=======
                             case "admin" -> "ADMIN";
                             case "coordinador" -> "COORDINADOR";
                             case "decano" -> "DECANO";
                             case "docente" -> "DOCENTE";
                             case "usuarioexterno" -> "USUARIOEXTERNO";
+                            case "estudiante" -> "ESTUDIANTE";
                             default -> "USER";
                         };
 
->>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                         authorities.add("ROLE_" + rolApp);
                     }
 

@@ -14,78 +14,61 @@ public class AdminSesionService {
 
     private final JdbcTemplate jdbcTemplate;
 
-    // LISTAR SESIONES ACTIVAS PARA ADMIN
-    public List<SesionDTO> listarSesiones() {
+// LISTAR SESIONES ACTIVAS PARA ADMIN
+public List<SesionDTO> listarSesiones() {
 
-        String sql = "SELECT * FROM fn_listar_sesiones_activas()";
+    String sql = "SELECT * FROM fn_listar_sesiones_activas()";
 
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+    return jdbcTemplate.query(sql, (rs, rowNum) -> {
 
-            SesionDTO s = new SesionDTO();
+        SesionDTO s = new SesionDTO();
 
-            s.setIdsesion(rs.getLong("idsesion"));
-            s.setIdusuario(rs.getLong("idusuario"));
+        s.setIdsesion(rs.getLong("idsesion"));
+        s.setIdusuario(rs.getLong("idusuario"));
 
-            s.setNombres(rs.getString("nombres"));
-            s.setApellidos(rs.getString("apellidos"));
+        s.setNombres(rs.getString("nombres"));
+        s.setApellidos(rs.getString("apellidos"));
+        s.setCorreo(rs.getString("correo"));
 
-<<<<<<< HEAD
-            s.setCorreo(rs.getString("correo")); 
-=======
-<<<<<<< HEAD
-            s.setCorreo(rs.getString("correo")); 
-=======
-            s.setCorreo(rs.getString("correo")); // ✅ CORRECCIÓN CLAVE
->>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
+        s.setNombrerol(rs.getString("nombrerol"));
 
-            s.setNombrerol(rs.getString("nombrerol"));
+        s.setIp(rs.getString("ip"));
+        s.setNavegador(rs.getString("navegador"));
+        s.setSistemaoperativo(rs.getString("sistemaoperativo"));
 
-            s.setIp(rs.getString("ip"));
-            s.setNavegador(rs.getString("navegador"));
-            s.setSistemaoperativo(rs.getString("sistemaoperativo"));
+        s.setFechalogin(rs.getString("fechalogin"));
 
-            s.setFechalogin(rs.getString("fechalogin"));
+        return s;
+    });
+}
 
-            return s;
-        });
-    }
+// LISTAR TODAS LAS SESIONES (HISTORIAL COMPLETO)
+public List<SesionDTO> listarTodasSesiones() {
 
-    // LISTAR TODAS LAS SESIONES (HISTORIAL COMPLETO)
-    public List<SesionDTO> listarTodasSesiones() {
+    String sql = "SELECT * FROM fn_listar_todas_sesiones()";
 
-        String sql = "SELECT * FROM fn_listar_todas_sesiones()";
+    return jdbcTemplate.query(sql, (rs, rowNum) -> {
 
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+        SesionDTO s = new SesionDTO();
 
-            SesionDTO s = new SesionDTO();
+        s.setIdsesion(rs.getLong("idsesion"));
+        s.setIdusuario(rs.getLong("idusuario"));
 
-            s.setIdsesion(rs.getLong("idsesion"));
-            s.setIdusuario(rs.getLong("idusuario"));
+        s.setNombres(rs.getString("nombres"));
+        s.setApellidos(rs.getString("apellidos"));
+        s.setCorreo(rs.getString("correo"));
 
-            s.setNombres(rs.getString("nombres"));
-            s.setApellidos(rs.getString("apellidos"));
-<<<<<<< HEAD
-            s.setCorreo(rs.getString("correo")); // 
-=======
-<<<<<<< HEAD
-            s.setCorreo(rs.getString("correo")); // 
-=======
-            s.setCorreo(rs.getString("correo")); // ✅ YA ESTABA BIEN
->>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
+        s.setNombrerol(rs.getString("nombrerol"));
 
-            s.setNombrerol(rs.getString("nombrerol"));
+        s.setIp(rs.getString("ip"));
+        s.setNavegador(rs.getString("navegador"));
+        s.setSistemaoperativo(rs.getString("sistemaoperativo"));
 
-            s.setIp(rs.getString("ip"));
-            s.setNavegador(rs.getString("navegador"));
-            s.setSistemaoperativo(rs.getString("sistemaoperativo"));
+        s.setFechalogin(rs.getString("fechalogin"));
 
-            s.setFechalogin(rs.getString("fechalogin"));
-
-            return s;
-        });
-    }
+        return s;
+    });
+}
 
     // EXPULSAR SESION
     public void banearSesion(Long idsesion) {

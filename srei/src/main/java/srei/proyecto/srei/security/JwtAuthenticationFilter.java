@@ -38,22 +38,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String requestURI = request.getRequestURI();
 
-        // ✅ Permitir preflight CORS
+        //  Permitir preflight CORS
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // ✅ Endpoints públicos
+        //  Endpoints públicos
         if (requestURI.startsWith("/api/auth/")
                 || requestURI.startsWith("/api/sesiones/validar/")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-            if (requestURI.contains("/api/ia")) {
+        if (requestURI.contains("/api/ia")) {
             filterChain.doFilter(request, response);
-             return;
+            return;
         }
 
         final String authHeader = request.getHeader("Authorization");
@@ -61,12 +61,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String token = null;
         String correo = null;
 
-        // ✅ Header Authorization
+        // Header Authorization
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
         }
 
-        // ✅ Fallback multipart
+        //  Fallback multipart
         if (token == null) {
             String paramToken = request.getParameter("token");
             if (paramToken != null) {
@@ -135,22 +135,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext()
                             .setAuthentication(authToken);
 
-<<<<<<< HEAD
                     // DEBUG FINAL
-=======
-<<<<<<< HEAD
-                    // DEBUG FINAL
-=======
-                    // 🔥 DEBUG FINAL
->>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
->>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                     System.out.println("AUTH FINAL: " +
                             SecurityContextHolder.getContext().getAuthentication().getAuthorities());
                 }
             }
 
         } catch (Exception e) {
-            System.out.println("❌ Error en JWT Filter: " + e.getMessage());
+            System.out.println(" Error en JWT Filter: " + e.getMessage());
         }
 
         filterChain.doFilter(request, response);
