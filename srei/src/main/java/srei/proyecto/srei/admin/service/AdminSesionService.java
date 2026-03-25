@@ -1,0 +1,141 @@
+package srei.proyecto.srei.admin.service;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+import srei.proyecto.srei.admin.dto.SesionDTO;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+@RequiredArgsConstructor
+public class AdminSesionService {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    // LISTAR SESIONES ACTIVAS PARA ADMIN
+    public List<SesionDTO> listarSesiones() {
+
+        String sql = "SELECT * FROM fn_listar_sesiones_activas()";
+
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+
+            SesionDTO s = new SesionDTO();
+
+            s.setIdsesion(rs.getLong("idsesion"));
+            s.setIdusuario(rs.getLong("idusuario"));
+
+            s.setNombres(rs.getString("nombres"));
+            s.setApellidos(rs.getString("apellidos"));
+
+            s.setCorreo(rs.getString("correo")); // ✅ CORRECCIÓN CLAVE
+
+            s.setNombrerol(rs.getString("nombrerol"));
+
+            s.setIp(rs.getString("ip"));
+            s.setNavegador(rs.getString("navegador"));
+            s.setSistemaoperativo(rs.getString("sistemaoperativo"));
+
+            s.setFechalogin(rs.getString("fechalogin"));
+
+            return s;
+        });
+    }
+
+    // LISTAR TODAS LAS SESIONES (HISTORIAL COMPLETO)
+    public List<SesionDTO> listarTodasSesiones() {
+
+        String sql = "SELECT * FROM fn_listar_todas_sesiones()";
+
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+
+            SesionDTO s = new SesionDTO();
+
+            s.setIdsesion(rs.getLong("idsesion"));
+            s.setIdusuario(rs.getLong("idusuario"));
+
+            s.setNombres(rs.getString("nombres"));
+            s.setApellidos(rs.getString("apellidos"));
+            s.setCorreo(rs.getString("correo")); // ✅ YA ESTABA BIEN
+
+            s.setNombrerol(rs.getString("nombrerol"));
+
+            s.setIp(rs.getString("ip"));
+            s.setNavegador(rs.getString("navegador"));
+            s.setSistemaoperativo(rs.getString("sistemaoperativo"));
+
+            s.setFechalogin(rs.getString("fechalogin"));
+
+            return s;
+        });
+    }
+
+    // EXPULSAR SESION
+    public void banearSesion(Long idsesion) {
+
+        jdbcTemplate.update(
+                "UPDATE sesionusuario SET activa = false WHERE idsesion = ?",
+                idsesion
+        );
+    }
+
+    // VALIDAR SI LA SESION SIGUE ACTIVA
+    public boolean sesionActiva(Long idsesion) {
+
+        String sql = """
+            SELECT COUNT(*)
+            FROM sesionusuario
+            WHERE idsesion = ?
+            AND activa = true
+        """;
+
+        Integer count = jdbcTemplate.queryForObject(
+                sql,
+                Integer.class,
+                idsesion
+        );
+
+        return count != null && count > 0;
+    }
+
+    //  ÚLTIMOS USUARIOS REGISTRADOS
+public List<SesionDTO> ultimosUsuarios() {
+
+    String sql = "SELECT * FROM fn_ultimos_usuarios()";
+
+    return jdbcTemplate.query(sql, (rs, rowNum) -> {
+
+        SesionDTO u = new SesionDTO();
+
+        u.setIdusuario(rs.getLong("idusuario"));
+        u.setNombres(rs.getString("nombres"));
+        u.setApellidos(rs.getString("apellidos"));
+        u.setCorreo(rs.getString("correo"));
+
+        // reutilizamos este campo para no crear DTO nuevo
+        u.setFechalogin(rs.getString("fecharegistro"));
+
+        return u;
+    });
+}
+
+// TOTAL DE EVENTOS (ADMIN)
+public int totalEventos() {
+
+    String sql = "SELECT COUNT(*) FROM evento";
+
+    Integer total = jdbcTemplate.queryForObject(sql, Integer.class);
+
+    return total != null ? total : 0;
+}
+
+// LISTAR EVENTOS (ADMIN)
+public List<Map<String, Object>> listarEventos() {
+
+    String sql = "SELECT * FROM fn_listar_eventos_admin()";
+
+    return jdbcTemplate.queryForList(sql);
+}
+
+}

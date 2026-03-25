@@ -1,0 +1,148 @@
+<div class="container">
+
+<h2>
+  Gestión de Eventos - {{ estadoSeleccionado }}
+</h2>
+
+<!-- 🔥 REPORTES -->
+<div class="acciones-top">
+  <select [(ngModel)]="estadoSeleccionado" (change)="cargarPorEstado()">
+    <option value="PENDIENTE">Pendientes</option>
+    <option value="APROBADO">Aprobados</option>
+    <option value="RECHAZADO">Rechazados</option>
+  </select>
+
+  <button (click)="cargarReporte()">Ver Reporte</button>
+  <button (click)="generarPDF()">PDF</button>
+  <button (click)="exportarExcel()">Excel</button>
+</div>
+
+<div *ngIf="cargando" class="loading">
+  Cargando eventos...
+</div>
+
+<!-- 🔥 CARDS -->
+<div class="cards-container" *ngIf="!cargando">
+
+  <div class="card-evento" *ngFor="let e of eventos">
+
+    <!-- IMAGEN -->
+    <div class="imagen">
+      <img 
+        [src]="e.urlImagen ? 'http://localhost:8080/' + e.urlImagen : '/img/logo.png'"
+        alt="evento"
+        (error)="e.urlImagen = null"
+      />
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="contenido">
+
+      <h3>{{ e.nombreevento }}</h3>
+
+      <p class="descripcion">
+        {{ e.descripcion }}
+      </p>
+
+      <p><strong>Docente:</strong> {{ e.nombreDocente || '-' }}</p>
+      <p><strong>Inicio:</strong> {{ e.fechainicio }}</p>
+
+      <!-- ESTADO -->
+      <span class="estado" 
+            [ngClass]="{
+              'pendiente': estadoSeleccionado === 'PENDIENTE',
+              'aprobado': estadoSeleccionado === 'APROBADO',
+              'rechazado': estadoSeleccionado === 'RECHAZADO'
+            }">
+        {{ estadoSeleccionado }}
+      </span>
+
+      <!-- COMENTARIO -->
+      <p *ngIf="estadoSeleccionado === 'RECHAZADO'">
+        <strong>Comentario:</strong>
+        {{ e.comentario || 'Sin comentario' }}
+      </p>
+
+      <!-- BOTONES -->
+      <div class="acciones-card">
+
+        <!-- PDF -->
+        <a *ngIf="e.urlPdf"
+           [href]="'http://localhost:8080/' + e.urlPdf"
+           target="_blank"
+           class="btn pdf">
+          Ver PDF
+        </a>
+
+        <!-- DETALLE (puedes luego usarlo si quieres) -->
+        <button class="btn detalle">
+          Ver detalles
+        </button>
+
+      </div>
+
+      <!-- ACCIONES SOLO PENDIENTE -->
+      <div class="acciones-card" *ngIf="estadoSeleccionado === 'PENDIENTE'">
+
+        <button
+          class="btn aprobar"
+          [disabled]="procesando"
+          (click)="aprobarEvento(e.idevento)">
+          ✔ Aprobar
+        </button>
+
+        <button
+          class="btn rechazar"
+          [disabled]="procesando"
+          (click)="abrirModalRechazo(e.idevento)">
+          ✖ Rechazar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- VACÍO -->
+  <div *ngIf="eventos.length === 0" class="vacio">
+    No hay eventos
+  </div>
+
+</div>
+
+</div>
+
+<!-- 🔥 MODAL RECHAZO -->
+
+<div class="modal" *ngIf="mostrarModal">
+
+  <div class="modal-content">
+
+    <h3>Rechazar evento</h3>
+
+    <textarea
+      [(ngModel)]="observacion"
+      placeholder="Escriba la observación">
+    </textarea>
+
+    <div class="acciones-modal">
+
+      <button
+        class="btn confirmar"
+        [disabled]="procesando"
+        (click)="confirmarRechazo()">
+        Confirmar
+      </button>
+
+      <button
+        class="btn cancelar"
+        (click)="cerrarModal()">
+        Cancelar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
