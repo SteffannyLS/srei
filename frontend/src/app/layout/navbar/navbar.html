@@ -1,0 +1,51 @@
+<nav class="navbar">
+
+  <!-- LOGO + NOMBRE -->
+  <div class="logo">
+    <img src="/img/logo.png" class="logo-img">
+    <span class="logo-text">
+      Sistema de Registro de Eventos Interculturales
+    </span>
+  </div>
+
+  <ul class="menu">
+
+    <!-- SIN LOGIN -->
+    <ng-container *ngIf="!authService.isLoggedIn()">
+
+      <li>
+        <a routerLink="/auth/login">
+          <span class="material-icons">login</span>
+          Iniciar Sesión
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/auth/register">
+          <span class="material-icons">person_add</span>
+          Registrarse
+        </a>
+      </li>
+
+    </ng-container>
+
+    <!-- CON LOGIN -->
+    <ng-container *ngIf="authService.isLoggedIn()">
+
+      <li class="usuario">
+        <span class="material-icons">account_circle</span>
+        {{ authService.getRol() }}
+      </li>
+
+      <li>
+        <a (click)="logout()" class="logout-btn">
+          <span class="material-icons">logout</span>
+          Cerrar Sesión
+        </a>
+      </li>
+
+    </ng-container>
+
+  </ul>
+
+</nav>
