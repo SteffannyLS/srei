@@ -119,6 +119,7 @@ export class AuthService {
       window.location.href = '/admin/dashboard';
     }
 
+<<<<<<< HEAD
     if (rol === 'DECANO'){
       window.location.href = '/decano/eventos';
     }
@@ -132,6 +133,8 @@ export class AuthService {
       window.location.href = '/asistente/eventos';
     }
 
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
   }
 
 }

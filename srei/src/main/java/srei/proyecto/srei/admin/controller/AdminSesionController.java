@@ -25,7 +25,11 @@ public class AdminSesionController {
 
         System.out.println("AUTH NAME: " + correo);
 
+<<<<<<< HEAD
         //  NO romper lógica existente
+=======
+        // 👇 IMPORTANTE: NO romper lógica existente
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
         return service.listarSesiones(); // dejamos como estaba por ahora
     }
 

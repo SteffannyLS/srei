@@ -47,13 +47,18 @@ export class LoginComponent {
 
         this.loading = false;
 
+<<<<<<< HEAD
         // ✅ GUARDAR DATOS
+=======
+        /* GUARDAR DATOS EN LOCALSTORAGE */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
         localStorage.setItem('token', res.token);
         localStorage.setItem('rol', res.rol);
         localStorage.setItem('idusuario', res.idusuario.toString());
         localStorage.setItem('nombre', res.nombres);
         localStorage.setItem('correo', this.credentials.correo);
 
+<<<<<<< HEAD
         //  MONITOREO
         this.sessionMonitor.iniciarMonitoreo();
 
@@ -61,6 +66,13 @@ export class LoginComponent {
         const rol = res.rol?.toUpperCase();
 
         switch (rol) {
+=======
+        // 🔥 IMPORTANTE: mantener monitoreo de sesión
+        this.sessionMonitor.iniciarMonitoreo();
+
+        // redirección por rol
+        switch (res.rol) {
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
           case 'ADMIN':
             this.router.navigateByUrl('/admin/dashboard', { replaceUrl: true });
@@ -74,6 +86,7 @@ export class LoginComponent {
             this.router.navigateByUrl('/coordinador/dashboard', { replaceUrl: true });
             break;
 
+<<<<<<< HEAD
           case 'DECANO':
             this.router.navigateByUrl('/decano/eventos', { replaceUrl: true }); 
             break;
@@ -86,6 +99,8 @@ export class LoginComponent {
             this.router.navigateByUrl('/asistente/eventos', { replaceUrl: true }); 
             break;
 
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
           default:
             this.router.navigateByUrl('/', { replaceUrl: true });
         }

@@ -20,14 +20,22 @@ public class AprobacionEventoController {
 
     private final AprobacionEventoService eventoService;
 
+<<<<<<< HEAD
     //  listar eventos pendientes
+=======
+    // 🔹 listar eventos pendientes
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
     @GetMapping("/eventos-pendientes")
     public ResponseEntity<?> listarPendientes() {
         System.out.println("ENTRÓ AL ENDPOINT EVENTOS PENDIENTES");
         return ResponseEntity.ok(eventoService.listarPendientes());
     }
 
+<<<<<<< HEAD
     //  aprobar evento
+=======
+    // 🔹 aprobar evento
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
     @PostMapping("/aprobar-evento")
     public ResponseEntity<?> aprobarEvento(@RequestBody AprobarEventoDTO dto){
         eventoService.aprobarEvento(dto);

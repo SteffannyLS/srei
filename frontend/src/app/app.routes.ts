@@ -27,7 +27,11 @@ export const routes: Routes = [
         .then(m => m.DashboardComponent)
   },
 
+<<<<<<< HEAD
   /* ================= DOCENTE ================= */
+=======
+  /* DOCENTE */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
   {
     path: 'docente',
@@ -58,6 +62,10 @@ export const routes: Routes = [
             .then(m => m.MisEventosComponent)
       },
 
+<<<<<<< HEAD
+=======
+      /* IA */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
       {
         path: 'ia/generar-juego',
         loadComponent: () =>
@@ -65,6 +73,10 @@ export const routes: Routes = [
             .then(m => m.GenerarJuegoComponent)
       },
 
+<<<<<<< HEAD
+=======
+      /* DETALLE EVENTO */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
       {
         path: 'evento/:id',
         loadComponent: () =>
@@ -75,7 +87,11 @@ export const routes: Routes = [
     ]
   },
 
+<<<<<<< HEAD
   /* ================= COORDINADOR ================= */
+=======
+  /* COORDINADOR */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
   {
     path: 'coordinador',
@@ -97,18 +113,25 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/coordinador/aprobar-eventos/aprobar-eventos')
             .then(m => m.AprobarEventosComponent)
+<<<<<<< HEAD
       },
         {
         path: 'eventos',
         loadComponent: () =>
           import('./features/coordinador/eventos/eventos')
             .then(m => m.EventosComponent)
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
       }
 
     ]
   },
 
+<<<<<<< HEAD
   /* ================= ADMIN ================= */
+=======
+  /* ADMIN */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
   {
     path: 'admin',
@@ -154,13 +177,19 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/administrador/backups/backups.component')
             .then(m => m.BackupsComponent)
+<<<<<<< HEAD
       },
 
       { path: 'eventos', component: EventosComponent }
+=======
+      }, { path: 'eventos', component: EventosComponent }
+      
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
     ]
   },
 
+<<<<<<< HEAD
   /*  DECANO  */
 
   {
@@ -199,6 +228,8 @@ export const routes: Routes = [
 
   /* ================= FALLBACK ================= */
 
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
   { path: '**', redirectTo: 'auth/login' }
 
 ];

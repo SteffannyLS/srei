@@ -72,6 +72,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/juegos/**").permitAll()
                 .requestMatchers("/juegos/**").permitAll()
 
+<<<<<<< HEAD
                 .requestMatchers("/api/asistente/**").permitAll()
 
                 .requestMatchers("/api/decano/**").authenticated()      
@@ -79,6 +80,10 @@ public class SecurityConfig {
 
                 // Estudiante
                 //.requestMatchers("/api/admin/**").hasRole("ESTUDIANTE")
+=======
+                
+
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
                 // 🔐 ADMIN
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
@@ -89,7 +94,11 @@ public class SecurityConfig {
                 .requestMatchers("/api/coordinador/**").hasRole("COORDINADOR")
 
                 // 🎓 DECANO
+<<<<<<< HEAD
                 //.requestMatchers("/api/decano/**").hasRole("DECANO")
+=======
+                .requestMatchers("/api/decano/**").hasRole("DECANO")
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
                 .anyRequest().authenticated()
             )
@@ -158,6 +167,7 @@ configuration.setAllowCredentials(true);
                                 ((String) row.get("nombrerol")).toLowerCase();
 
                         String rolApp = switch (rolBd) {
+<<<<<<< HEAD
                           case "admin" -> "ADMIN";
                             case "coordinador" -> "COORDINADOR";
                          case "decano" -> "DECANO";
@@ -166,6 +176,16 @@ configuration.setAllowCredentials(true);
                             case "estudiante" -> "ESTUDIANTE"; 
                             default -> "USER";
                             };
+=======
+                            case "admin" -> "ADMIN";
+                            case "coordinador" -> "COORDINADOR";
+                            case "decano" -> "DECANO";
+                            case "docente" -> "DOCENTE";
+                            case "usuarioexterno" -> "USUARIOEXTERNO";
+                            default -> "USER";
+                        };
+
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
                         authorities.add("ROLE_" + rolApp);
                     }
 

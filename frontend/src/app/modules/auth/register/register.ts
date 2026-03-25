@@ -50,7 +50,11 @@ export class RegisterComponent {
           apellidos: '',
           correo: '',
           contrasena: '',
+<<<<<<< HEAD
           idtipousuario: 6
+=======
+          idtipousuario: 5
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
         };
 
       },

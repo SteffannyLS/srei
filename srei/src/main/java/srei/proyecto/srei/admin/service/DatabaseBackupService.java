@@ -21,8 +21,13 @@ public class DatabaseBackupService {
     @Value("${spring.datasource.url}")
     private String datasourceUrl;
 
+<<<<<<< HEAD
     private static final String DB_USER = "appbackup";
     private static final String DB_PASSWORD = "12345";
+=======
+    private static final String DB_USER = "postgres";
+    private static final String DB_PASSWORD = "postgreAdmin@1";
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 
     private static final String PG_DUMP =
             "C:/Program Files/PostgreSQL/18/bin/pg_dump.exe";

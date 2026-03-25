@@ -60,12 +60,20 @@ export class AprobarEventosComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   // REPORTE (NO pisa eventos)
+=======
+  // 🔥 REPORTE (NO pisa eventos)
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
 cargarReporte() {
   return this.coordinadorService
     .getReporteEventos(this.estadoSeleccionado);
 }
+<<<<<<< HEAD
   // APROBAR
+=======
+  // 🔥 APROBAR
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
   aprobarEvento(id: number) {
 
     if (this.procesando) return;
@@ -81,13 +89,21 @@ cargarReporte() {
     this.coordinadorService.aprobarEvento(body).subscribe({
       next: () => {
         this.procesando = false;
+<<<<<<< HEAD
         this.cargarPorEstado(); //  CORREGIDO
+=======
+        this.cargarPorEstado(); // 🔥 CORREGIDO
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
       },
       error: () => this.procesando = false
     });
   }
 
+<<<<<<< HEAD
   //  MODAL
+=======
+  // 🔥 MODAL
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
   abrirModalRechazo(id: number) {
     this.eventoSeleccionado = id;
     this.mostrarModal = true;
@@ -100,7 +116,11 @@ cargarReporte() {
     this.eventoSeleccionado = null;
   }
 
+<<<<<<< HEAD
   // 
+=======
+  // 🔥 RECHAZAR
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
   confirmarRechazo(){
 
     if(this.procesando) return;
