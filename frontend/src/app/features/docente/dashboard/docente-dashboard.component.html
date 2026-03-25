@@ -1,0 +1,83 @@
+<div class="dashboard-container">
+
+  <!-- USUARIO -->
+  <div class="usuario-card">
+    <h3>{{ nombreDocente }}</h3>
+    <p>{{ correoDocente }}</p>
+    <span class="rol">{{ rolDocente }}</span>
+  </div>
+
+  <!-- TÍTULO -->
+  <h2 class="titulo">Dashboard Docente</h2>
+
+  <!-- 🔥 FILA PRINCIPAL -->
+  <div class="dashboard-top fade-in">
+
+    <!-- 🔥 IZQUIERDA: GRÁFICO -->
+    <div class="grafico-box">
+      <h3>Resumen</h3>
+
+      <div class="grafico-contenedor">
+        <canvas id="graficoEventos"></canvas>
+      </div>
+    </div>
+
+    <!-- 🔥 DERECHA: CARDS -->
+    <div class="cards">
+
+      <div class="card">
+        <h3>Total Eventos</h3>
+        <p>{{ totalEventos }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Aprobados</h3>
+        <p>{{ eventosAprobados }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Pendientes</h3>
+        <p>{{ eventosPendientes }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Rechazados</h3>
+        <p>{{ eventosRechazados }}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ÚLTIMOS EVENTOS -->
+  <div class="ultimos-eventos fade-in">
+
+    <h3>Últimos eventos</h3>
+
+    <div *ngIf="ultimosEventos.length === 0">
+      No tienes eventos registrados.
+    </div>
+
+    <div *ngFor="let evento of ultimosEventos" class="evento-item">
+
+     <div class="evento-info">
+  <strong class="evento-nombre">{{ evento.nombreevento }}</strong>
+  <small class="evento-fecha">
+    {{ evento.fechainicio | date:'dd MMM yyyy' }}
+  </small>
+</div>
+
+      <span
+        [ngClass]="{
+          'estado-aprobado': evento.estado === 'APROBADO',
+          'estado-pendiente': evento.estado === 'PENDIENTE',
+          'estado-rechazado': evento.estado === 'RECHAZADO'
+        }">
+        {{ evento.estado }}
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
