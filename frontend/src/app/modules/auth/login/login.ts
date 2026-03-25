@@ -47,13 +47,25 @@ export class LoginComponent {
 
         this.loading = false;
 
+<<<<<<< HEAD
         // ✅ GUARDAR DATOS
+=======
+<<<<<<< HEAD
+        // ✅ GUARDAR DATOS
+=======
+        /* GUARDAR DATOS EN LOCALSTORAGE */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
         localStorage.setItem('token', res.token);
         localStorage.setItem('rol', res.rol);
         localStorage.setItem('idusuario', res.idusuario.toString());
         localStorage.setItem('nombre', res.nombres);
         localStorage.setItem('correo', this.credentials.correo);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
         //  MONITOREO
         this.sessionMonitor.iniciarMonitoreo();
 
@@ -61,6 +73,16 @@ export class LoginComponent {
         const rol = res.rol?.toUpperCase();
 
         switch (rol) {
+<<<<<<< HEAD
+=======
+=======
+        // 🔥 IMPORTANTE: mantener monitoreo de sesión
+        this.sessionMonitor.iniciarMonitoreo();
+
+        // redirección por rol
+        switch (res.rol) {
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
           case 'ADMIN':
             this.router.navigateByUrl('/admin/dashboard', { replaceUrl: true });
@@ -74,6 +96,10 @@ export class LoginComponent {
             this.router.navigateByUrl('/coordinador/dashboard', { replaceUrl: true });
             break;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
           case 'DECANO':
             this.router.navigateByUrl('/decano/eventos', { replaceUrl: true }); 
             break;
@@ -86,6 +112,11 @@ export class LoginComponent {
             this.router.navigateByUrl('/asistente/eventos', { replaceUrl: true }); 
             break;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
           default:
             this.router.navigateByUrl('/', { replaceUrl: true });
         }

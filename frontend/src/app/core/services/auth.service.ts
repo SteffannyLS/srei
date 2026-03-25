@@ -119,6 +119,10 @@ export class AuthService {
       window.location.href = '/admin/dashboard';
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
     if (rol === 'DECANO'){
       window.location.href = '/decano/eventos';
     }
@@ -132,6 +136,11 @@ export class AuthService {
       window.location.href = '/asistente/eventos';
     }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
   }
 
 }

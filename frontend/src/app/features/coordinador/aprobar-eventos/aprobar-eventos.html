@@ -21,11 +21,26 @@
   Cargando eventos...
 </div>
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<!-- 🔥 CARDS -->
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 <div class="cards-container" *ngIf="!cargando">
 
   <div class="card-evento" *ngFor="let e of eventos">
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    <!-- IMAGEN -->
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
     <div class="imagen">
       <img 
         [src]="e.urlImagen ? 'http://localhost:8080/' + e.urlImagen : '/img/logo.png'"
@@ -34,7 +49,15 @@
       />
     </div>
 
+<<<<<<< HEAD
  
+=======
+<<<<<<< HEAD
+ 
+=======
+    <!-- CONTENIDO -->
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
     <div class="contenido">
 
       <h3>{{ e.nombreevento }}</h3>
@@ -46,7 +69,15 @@
       <p><strong>Docente:</strong> {{ e.nombreDocente || '-' }}</p>
       <p><strong>Inicio:</strong> {{ e.fechainicio }}</p>
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+      <!-- ESTADO -->
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
       <span class="estado" 
             [ngClass]="{
               'pendiente': estadoSeleccionado === 'PENDIENTE',

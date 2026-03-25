@@ -27,7 +27,15 @@ export const routes: Routes = [
         .then(m => m.DashboardComponent)
   },
 
+<<<<<<< HEAD
   /* ================= DOCENTE ================= */
+=======
+<<<<<<< HEAD
+  /* ================= DOCENTE ================= */
+=======
+  /* DOCENTE */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
   {
     path: 'docente',
@@ -58,6 +66,13 @@ export const routes: Routes = [
             .then(m => m.MisEventosComponent)
       },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+      /* IA */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
       {
         path: 'ia/generar-juego',
         loadComponent: () =>
@@ -65,6 +80,13 @@ export const routes: Routes = [
             .then(m => m.GenerarJuegoComponent)
       },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+      /* DETALLE EVENTO */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
       {
         path: 'evento/:id',
         loadComponent: () =>
@@ -75,7 +97,15 @@ export const routes: Routes = [
     ]
   },
 
+<<<<<<< HEAD
   /* ================= COORDINADOR ================= */
+=======
+<<<<<<< HEAD
+  /* ================= COORDINADOR ================= */
+=======
+  /* COORDINADOR */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
   {
     path: 'coordinador',
@@ -97,18 +127,35 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/coordinador/aprobar-eventos/aprobar-eventos')
             .then(m => m.AprobarEventosComponent)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
       },
         {
         path: 'eventos',
         loadComponent: () =>
           import('./features/coordinador/eventos/eventos')
             .then(m => m.EventosComponent)
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
       }
 
     ]
   },
 
+<<<<<<< HEAD
   /* ================= ADMIN ================= */
+=======
+<<<<<<< HEAD
+  /* ================= ADMIN ================= */
+=======
+  /* ADMIN */
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
   {
     path: 'admin',
@@ -154,13 +201,28 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/administrador/backups/backups.component')
             .then(m => m.BackupsComponent)
+<<<<<<< HEAD
       },
 
       { path: 'eventos', component: EventosComponent }
+=======
+<<<<<<< HEAD
+      },
+
+      { path: 'eventos', component: EventosComponent }
+=======
+      }, { path: 'eventos', component: EventosComponent }
+      
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
     ]
   },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
   /*  DECANO  */
 
   {
@@ -199,6 +261,11 @@ export const routes: Routes = [
 
   /* ================= FALLBACK ================= */
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
   { path: '**', redirectTo: 'auth/login' }
 
 ];

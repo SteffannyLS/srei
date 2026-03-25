@@ -72,6 +72,10 @@ public class SecurityConfig {
                 .requestMatchers("/api/juegos/**").permitAll()
                 .requestMatchers("/juegos/**").permitAll()
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                 .requestMatchers("/api/asistente/**").permitAll()
 
                 .requestMatchers("/api/decano/**").authenticated()      
@@ -79,6 +83,13 @@ public class SecurityConfig {
 
                 // Estudiante
                 //.requestMatchers("/api/admin/**").hasRole("ESTUDIANTE")
+<<<<<<< HEAD
+=======
+=======
+                
+
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                 // 🔐 ADMIN
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
@@ -89,7 +100,15 @@ public class SecurityConfig {
                 .requestMatchers("/api/coordinador/**").hasRole("COORDINADOR")
 
                 // 🎓 DECANO
+<<<<<<< HEAD
                 //.requestMatchers("/api/decano/**").hasRole("DECANO")
+=======
+<<<<<<< HEAD
+                //.requestMatchers("/api/decano/**").hasRole("DECANO")
+=======
+                .requestMatchers("/api/decano/**").hasRole("DECANO")
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
                 .anyRequest().authenticated()
             )
@@ -158,6 +177,10 @@ configuration.setAllowCredentials(true);
                                 ((String) row.get("nombrerol")).toLowerCase();
 
                         String rolApp = switch (rolBd) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                           case "admin" -> "ADMIN";
                             case "coordinador" -> "COORDINADOR";
                          case "decano" -> "DECANO";
@@ -166,6 +189,19 @@ configuration.setAllowCredentials(true);
                             case "estudiante" -> "ESTUDIANTE"; 
                             default -> "USER";
                             };
+<<<<<<< HEAD
+=======
+=======
+                            case "admin" -> "ADMIN";
+                            case "coordinador" -> "COORDINADOR";
+                            case "decano" -> "DECANO";
+                            case "docente" -> "DOCENTE";
+                            case "usuarioexterno" -> "USUARIOEXTERNO";
+                            default -> "USER";
+                        };
+
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                         authorities.add("ROLE_" + rolApp);
                     }
 

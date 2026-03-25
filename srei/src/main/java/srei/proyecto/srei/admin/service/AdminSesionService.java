@@ -29,7 +29,15 @@ public class AdminSesionService {
             s.setNombres(rs.getString("nombres"));
             s.setApellidos(rs.getString("apellidos"));
 
+<<<<<<< HEAD
             s.setCorreo(rs.getString("correo")); 
+=======
+<<<<<<< HEAD
+            s.setCorreo(rs.getString("correo")); 
+=======
+            s.setCorreo(rs.getString("correo")); // ✅ CORRECCIÓN CLAVE
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
             s.setNombrerol(rs.getString("nombrerol"));
 
@@ -57,7 +65,15 @@ public class AdminSesionService {
 
             s.setNombres(rs.getString("nombres"));
             s.setApellidos(rs.getString("apellidos"));
+<<<<<<< HEAD
             s.setCorreo(rs.getString("correo")); // 
+=======
+<<<<<<< HEAD
+            s.setCorreo(rs.getString("correo")); // 
+=======
+            s.setCorreo(rs.getString("correo")); // ✅ YA ESTABA BIEN
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 
             s.setNombrerol(rs.getString("nombrerol"));
 

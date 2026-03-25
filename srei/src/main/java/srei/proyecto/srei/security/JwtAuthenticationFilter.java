@@ -135,7 +135,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext()
                             .setAuthentication(authToken);
 
+<<<<<<< HEAD
                     // DEBUG FINAL
+=======
+<<<<<<< HEAD
+                    // DEBUG FINAL
+=======
+                    // 🔥 DEBUG FINAL
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
                     System.out.println("AUTH FINAL: " +
                             SecurityContextHolder.getContext().getAuthentication().getAuthorities());
                 }

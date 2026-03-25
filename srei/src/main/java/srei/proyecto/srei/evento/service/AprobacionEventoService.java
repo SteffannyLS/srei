@@ -94,7 +94,15 @@ public class AprobacionEventoService {
     }
 
     // ===============================
+<<<<<<< HEAD
     //  REPORTES
+=======
+<<<<<<< HEAD
+    //  REPORTES
+=======
+    // 🔥 REPORTES
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
     // ===============================
 
     public List<EventoPendienteDTO> reporteEventos(String estado) {

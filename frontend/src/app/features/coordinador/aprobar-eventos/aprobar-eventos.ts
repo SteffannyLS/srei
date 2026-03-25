@@ -60,12 +60,28 @@ export class AprobarEventosComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   // REPORTE (NO pisa eventos)
+=======
+<<<<<<< HEAD
+  // REPORTE (NO pisa eventos)
+=======
+  // 🔥 REPORTE (NO pisa eventos)
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
 cargarReporte() {
   return this.coordinadorService
     .getReporteEventos(this.estadoSeleccionado);
 }
+<<<<<<< HEAD
   // APROBAR
+=======
+<<<<<<< HEAD
+  // APROBAR
+=======
+  // 🔥 APROBAR
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
   aprobarEvento(id: number) {
 
     if (this.procesando) return;
@@ -81,13 +97,29 @@ cargarReporte() {
     this.coordinadorService.aprobarEvento(body).subscribe({
       next: () => {
         this.procesando = false;
+<<<<<<< HEAD
         this.cargarPorEstado(); //  CORREGIDO
+=======
+<<<<<<< HEAD
+        this.cargarPorEstado(); //  CORREGIDO
+=======
+        this.cargarPorEstado(); // 🔥 CORREGIDO
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
       },
       error: () => this.procesando = false
     });
   }
 
+<<<<<<< HEAD
   //  MODAL
+=======
+<<<<<<< HEAD
+  //  MODAL
+=======
+  // 🔥 MODAL
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
   abrirModalRechazo(id: number) {
     this.eventoSeleccionado = id;
     this.mostrarModal = true;
@@ -100,7 +132,15 @@ cargarReporte() {
     this.eventoSeleccionado = null;
   }
 
+<<<<<<< HEAD
   // 
+=======
+<<<<<<< HEAD
+  // 
+=======
+  // 🔥 RECHAZAR
+>>>>>>> 927bc787b7ed977d6cc929e279e780df94812d61
+>>>>>>> 99bf4f14cecae5bd0216f6a35705358283414aba
   confirmarRechazo(){
 
     if(this.procesando) return;
