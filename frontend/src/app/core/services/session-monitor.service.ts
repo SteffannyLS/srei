@@ -24,32 +24,32 @@ export class SessionMonitorService {
 
     setInterval(() => {
 
-  const idSesion = localStorage.getItem('idsesion');
-  const token = localStorage.getItem('token');
+      const idSesion = localStorage.getItem('idsesion');
+      const token = localStorage.getItem('token');
 
-  if (!idSesion || !token) return;
+      if (!idSesion || !token) return;
 
-  this.http.get<boolean>(
-    `${this.apiUrl}/api/sesiones/validar/${idSesion}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    }
-  )
-  .subscribe({
-    next: (activa) => {
-      if (!activa) {
-        console.warn('Sesión expulsada por administrador');
-        this.sesionExpulsada$.next(true);
-      }
-    },
-    error: (err) => {
-      console.error('Error verificando sesión', err);
-    }
-  });
+      this.http.get<boolean>(
+        `${this.apiUrl}/api/sesiones/validar/${idSesion}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      )
+      .subscribe({
+        next: (activa) => {
+          if (!activa) {
+            console.warn('Sesión expulsada por administrador');
+            this.sesionExpulsada$.next(true);
+          }
+        },
+        error: (err) => {
+          console.error('Error verificando sesión', err);
+        }
+      });
 
-}, 5000);
+    }, 5000);
 
   }
 

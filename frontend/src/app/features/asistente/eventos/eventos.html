@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div class="header">
+    <h2>Eventos (Asistente)</h2>
+  </div>
+
+  <p *ngIf="loading">Cargando eventos...</p>
+
+  <p *ngIf="!loading && eventos.length === 0">
+    No hay eventos disponibles
+  </p>
+
+  <div class="card" *ngFor="let e of eventos">
+
+    <div class="imagen-container">
+      <img 
+        [src]="getImagen(e.url_imagen)" 
+        alt="Imagen evento"
+        class="imagen-evento"
+      />
+    </div>
+
+    <h3>{{ e.nombreevento }}</h3>
+
+    <p><strong>Descripción:</strong> {{ e.descripcion }}</p>
+
+    <p>
+      <strong>Inicio:</strong>
+      {{ e.fechainicio | date:'short' }}
+    </p>
+
+    <p>
+      <strong>Fin:</strong>
+      {{ e.fechafin | date:'short' }}
+    </p>
+
+    <p><strong>Lugar:</strong> {{ e.lugar }}</p>
+    <p><strong>Aforo:</strong> {{ e.aforo }}</p>
+
+    <p>
+      <strong>Estado:</strong>
+      <span class="estado">{{ e.estadoactual }}</span>
+    </p>
+
+    <p><strong>Ámbito:</strong> {{ e.ambito }}</p>
+
+  </div>
+
+</div>

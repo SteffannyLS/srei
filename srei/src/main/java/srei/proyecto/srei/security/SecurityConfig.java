@@ -72,7 +72,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/juegos/**").permitAll()
                 .requestMatchers("/juegos/**").permitAll()
 
-                .requestMatchers("/api/asistente/**").permitAll()
+                .requestMatchers("/api/asistente/**").authenticated()
+                //.requestMatchers("/api/asistente/**").permitAll()
 
                 .requestMatchers("/api/decano/**").authenticated()      
                 .requestMatchers("/api/estudiante/**").authenticated()
@@ -164,6 +165,7 @@ configuration.setAllowCredentials(true);
                           case "docente" -> "DOCENTE";
                             case "usuarioexterno" -> "USUARIOEXTERNO";
                             case "estudiante" -> "ESTUDIANTE"; 
+                            case "asistente" -> "ASISTENTE";
                             default -> "USER";
                             };
                         authorities.add("ROLE_" + rolApp);

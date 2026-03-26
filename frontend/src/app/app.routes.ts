@@ -197,6 +197,24 @@ export const routes: Routes = [
     ]
   },
 
+
+  {
+  path: 'asistente',
+  canActivate: [authGuard],
+  children: [
+
+    { path: '', redirectTo: 'eventos', pathMatch: 'full' },
+
+    {
+      path: 'eventos',
+     loadComponent: () =>
+  import('./features/asistente/eventos/eventos')
+    .then(m => m.EventosComponent)
+    }
+
+  ]
+},
+
   /* ================= FALLBACK ================= */
 
   { path: '**', redirectTo: 'auth/login' }
