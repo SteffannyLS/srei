@@ -143,6 +143,7 @@ public class AuthService {
             case 4 -> "usuarioexterno";
             case 5 -> "docente";
             case 6 -> "estudiante"; 
+            case 7 -> "asistente";
             default -> "user";
         };
 
